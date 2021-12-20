@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NotificationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,5 +25,8 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('sms.dashboard.dashboard');
 })->name('dashboard');
+
+Route::get('/send-sms', [NotificationController::class, 'loadSendSmsView'])
+    ->name('send_sms.view');
 
 require __DIR__.'/auth.php';

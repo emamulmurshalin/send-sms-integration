@@ -12,7 +12,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="/employees" class="nav-link"><i
+                <a href="/send-sms" class="nav-link"><i
                         class="flaticon-user"></i><span>Send SMS</span></a>
             </li>
 
