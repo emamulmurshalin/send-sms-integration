@@ -29,4 +29,7 @@ Route::get('/dashboard', function () {
 Route::get('/send-sms', [NotificationController::class, 'loadSendSmsView'])
     ->name('send_sms.view');
 
+Route::post('/send-sms-to-customer', [NotificationController::class, 'sendSms'])
+    ->name('send_sms.store');
+
 require __DIR__.'/auth.php';

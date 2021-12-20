@@ -21,23 +21,41 @@
                         <h3>Send SMS</h3>
                     </div>
                 </div>
-                <form class="new-added-form">
+                {!! Form::open(['route' => 'send_sms.store']) !!}
+                <div class="new-added-form">
                     <div class="row">
                         <div class="col-xl-12 col-lg-6 col-12 form-group">
                             <label>Customer Name *</label>
-                            <input type="text" placeholder="" class="form-control">
+                            <input type="text" placeholder="" name="customer_name" required class="form-control">
                         </div>
                         <div class="col-xl-12 col-lg-6 col-12 form-group">
                             <label>Mobile Number *</label>
-                            <input type="text" placeholder="" class="form-control">
-                        </div>
+                            <input type="text" placeholder="" name="mobile_number" required class="form-control">
                         </div>
                         <div class="col-12 form-group mg-t-8 pd-0">
-                            <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark float-right">Save</button>
+                            <button type="submit" id="send-button" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark float-right">Send</button>
                         </div>
                     </div>
-                </form>
+                </div>
+                {!! Form::close() !!}
             </div>
         </div>
     </div>
 @endsection
+@push('footer_scripts')
+<script>
+
+    {{--$('#send-button').click(function (){--}}
+    {{--    $.ajax({--}}
+    {{--        url: '{{ route('send_sms.store') }}',--}}
+    {{--        type: 'post',--}}
+    {{--        data: {_token:_token},--}}
+    {{--        dataType: 'json',--}}
+    {{--        loadSpinner: true,--}}
+    {{--        success: function (response) {--}}
+
+    {{--        }--}}
+    {{--    });--}}
+    {{--})--}}
+</script>
+@endpush
