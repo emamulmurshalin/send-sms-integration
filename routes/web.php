@@ -22,14 +22,17 @@ Route::get('/', function () {
 //    return view('dashboard');
 //})->middleware(['auth'])->name('dashboard');
 
-Route::get('/dashboard', function () {
-    return view('sms.dashboard.dashboard');
-})->name('dashboard');
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('sms.dashboard.dashboard');
+    })->name('dashboard');
 
-Route::get('/send-sms', [NotificationController::class, 'loadSendSmsView'])
-    ->name('send_sms.view');
+    Route::get('/send-sms', [NotificationController::class, 'loadSendSmsView'])
+        ->name('send_sms.view');
 
-Route::post('/send-sms-to-customer', [NotificationController::class, 'sendSms'])
-    ->name('send_sms.store');
+    Route::post('/send-sms-to-customer', [NotificationController::class, 'sendSms'])
+        ->name('send_sms.store');
+});
+
 
 require __DIR__.'/auth.php';
